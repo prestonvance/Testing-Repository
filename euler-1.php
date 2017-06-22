@@ -13,5 +13,5 @@ $input = $_GET["limit"];
 if(!empty($input)) {
 	$limit = $input;
 }
-echo euler($limit);
+echo "The Euler value for limit $limit is: " . euler($limit);
 ?>
