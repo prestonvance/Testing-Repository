@@ -1,5 +1,5 @@
 <?php
-if(date('H')>12){
+if(date('H')>17){
   $Name1='Jack';
   $Name2='Sig';
 }else{
