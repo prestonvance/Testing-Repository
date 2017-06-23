@@ -13,10 +13,11 @@ $input = $_GET["limit"];
 if(!empty($input)) {
 	$limit = $input;
 }
-echo euler($limit);
+echo "The Euler value for limit $limit is: " . euler($limit);
 ?>
 
 //Sigs way
+/*
 <?php 
 $sum=0;
 for ($x = 0; $x < 1000; $x++) {
@@ -26,3 +27,4 @@ for ($x = 0; $x < 1000; $x++) {
 } 
 echo $sum;
 ?>
+*/
