@@ -1,4 +1,10 @@
 <?php
-echo "Hello World";
-echo "Hello Sig. This is Jack";
+if(date('H')>17){
+  $Name1='Jack';
+  $Name2='Sig';
+}else{
+  $Name1='Frank';
+  $Name2='Preston';
+}
+echo "Hello $Name2. This is $Name1";
 ?>
