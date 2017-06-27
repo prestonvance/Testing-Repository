@@ -21,7 +21,7 @@ The list should be able to:
 function fetchList() {
 	var sort = document.getElementById("sortfilter").value;
 	var search = document.getElementById("searchfilter").value;
-	fetch("zphp/ajax/names-list.php?sort="+ sort + "keyword="+ search).then(function(response) {
+	fetch("zphp/ajax/names-list.php?sort="+ sort + "&keyword="+ search).then(function(response) {
 		// response.text() returns a promise that we chain on to read the text off the stream
 	    response.text().then(function(text) {
 	    	console.log(text);
