@@ -37,4 +37,4 @@ The list should be able to:
 	}
 ?>
 
-Output can be seen at http://http://hysteriamachinesentertainment.com/php-test
+Output can be seen at http://hysteriamachinesentertainment.com/php-test
