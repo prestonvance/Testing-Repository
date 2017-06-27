@@ -1,18 +1,15 @@
 <?php
 	$names = array("Sig", "Nikki", "Jack", "Nina", "Désìre", "Matchbox 20", "Matchbox 100");
-
 	if(isset($_GET["sort"])){
 		$sort=$_GET["sort"];
 	}else{
 		$sort=1;
 	}
-
 	if(isset($_GET["keyword"])){
-		$Keyword=$_GET["keyword"];
+		$Keyword=strtolower($_GET["keyword"]);
 	}else{
 		$Keyword='';
 	}
-
 	$x=1;
 	if($sort==1){
 		sort($names, SORT_NATURAL | SORT_FLAG_CASE);
@@ -20,10 +17,13 @@
 		rsort($names, SORT_NATURAL | SORT_FLAG_CASE);
 	}
 	foreach($names as $Key=>$Value){
-		if($Keyword!='' AND $Value==$Keyword){
+		$LValue=strtolower($Value);
+		$Keyword=strtolower($Keyword);
+		if($Keyword!='' & strpos($LValue,$Keyword)!==FALSE){
 			echo "$x: $Value<br>";
-			$x++;
-		}else{
+			$x++;		
+		}
+		if($Keyword==''){
 			echo "$x: $Value<br>";
 			$x++;
 		}
