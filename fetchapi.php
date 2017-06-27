@@ -4,7 +4,9 @@ The list should be able to:
 <ul>
 	<li>Sort (with proper number sort)</li>
 	<li>Show index (starting with 1)</li>
-	<li>... (to be continued)</li>
+	<li>Filter with a text input field</li>
+	<li>Get the names from a database</li>
+	<li>To be continued...</li>
 </ul>
 <form>
 	<select id='sortfilter' name='sort' ONCHANGE='fetchList()'>
