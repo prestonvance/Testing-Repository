@@ -1,5 +1,15 @@
 <?php
-	$names = array("Sig", "Nikki", "Jack", "Nina", "Désìre", "Matchbox 20", "Matchbox 100");
+	$servername = "someserverhost";
+	$username = "root";
+	$password = "********";
+	$dbname = "friendsnamedb";
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	} 
+	
 	if(isset($_GET["sort"])){
 		$sort=$_GET["sort"];
 	}else{
@@ -7,25 +17,25 @@
 	}
 	if(isset($_GET["keyword"])){
 		$Keyword=strtolower($_GET["keyword"]);
+		$query1=" WHERE name LIKE '%$Keyword%'";
 	}else{
-		$Keyword='';
+		$query1='';
 	}
-	$x=1;
+	
 	if($sort==1){
-		sort($names, SORT_NATURAL | SORT_FLAG_CASE);
+		$query2=" ORDER BY name ASC";
 	}elseif($sort==2){
-		rsort($names, SORT_NATURAL | SORT_FLAG_CASE);
+		$query2=" ORDER BY name DESC";
 	}
-	foreach($names as $Key=>$Value){
-		$LValue=strtolower($Value);
-		$Keyword=strtolower($Keyword);
-		if($Keyword!='' & strpos($LValue,$Keyword)!==FALSE){
-			echo "$x: $Value<br>";
-			$x++;		
-		}
-		if($Keyword==''){
-			echo "$x: $Value<br>";
-			$x++;
-		}
+	
+	$sql="SELECT * FROM names $query1 $query2";
+	$result=$conn->query($sql);
+	while($row=$result->fetch_assoc()){
+	//assuming the table names has theses columns ID=RecID and Name=Name
+		$ID=$row["RecID"];
+		$Name=$row["Name"]
+		echo "$ID: $Name <br>";
+	
 	}
+	$conn->close();
 ?>
