@@ -35,7 +35,7 @@
 	while($row=$result->fetch_assoc()){
 	//assuming the table names has theses columns ID=RecID and Name=Name
 		$ID=$row["RecID"];
-		$Name=$row["Name"]
+		$Name=$row["Name"];
 		echo "$ID: $Name <br>";
 	
 	}
