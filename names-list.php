@@ -26,6 +26,8 @@
 		$query2=" ORDER BY name ASC";
 	}elseif($sort==2){
 		$query2=" ORDER BY name DESC";
+	}else{
+		$query2='';
 	}
 	
 	$sql="SELECT * FROM names $query1 $query2";
